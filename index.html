@@ -1,0 +1,429 @@
+<title>김도윤 포트폴리오</title>
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F6F7FA;
+    --surface:#FFFFFF;
+    --surface-2:#FBFBFD;
+    --ink:#14161C;
+    --ink-soft:#565B66;
+    --ink-faint:#9499A6;
+    --line:#E2E4EA;
+    --line-strong:#CBCFDA;
+    --accent:#3355FF;
+    --accent-ink:#1F3ACC;
+    --accent-soft:#EEF1FF;
+    --status-shipped:#1F9D55;
+    --status-shipped-soft:#E7F6EC;
+    --status-dev:#B4790E;
+    --status-dev-soft:#FBF0DD;
+    --status-proto:#5B6170;
+    --status-proto-soft:#EEEFF3;
+    --shadow: 0 1px 2px rgba(20,22,28,.04), 0 8px 24px -12px rgba(20,22,28,.10);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0C0D11;
+      --surface:#15171D;
+      --surface-2:#1A1C23;
+      --ink:#ECEDF2;
+      --ink-soft:#9AA0AD;
+      --ink-faint:#6A6F7C;
+      --line:#262933;
+      --line-strong:#333743;
+      --accent:#7C93FF;
+      --accent-ink:#A9B8FF;
+      --accent-soft:#1B2240;
+      --status-shipped:#49D98A;
+      --status-shipped-soft:#122A1E;
+      --status-dev:#E8AE4D;
+      --status-dev-soft:#2E2412;
+      --status-proto:#9BA1AF;
+      --status-proto-soft:#20222A;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px -16px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0C0D11;
+    --surface:#15171D;
+    --surface-2:#1A1C23;
+    --ink:#ECEDF2;
+    --ink-soft:#9AA0AD;
+    --ink-faint:#6A6F7C;
+    --line:#262933;
+    --line-strong:#333743;
+    --accent:#7C93FF;
+    --accent-ink:#A9B8FF;
+    --accent-soft:#1B2240;
+    --status-shipped:#49D98A;
+    --status-shipped-soft:#122A1E;
+    --status-dev:#E8AE4D;
+    --status-dev-soft:#2E2412;
+    --status-proto:#9BA1AF;
+    --status-proto-soft:#20222A;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px -16px rgba(0,0,0,.6);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .mono{ font-family:'IBM Plex Mono', 'Courier New', monospace; }
+  .display{ font-family:'Archivo', system-ui, sans-serif; font-weight:800; letter-spacing:-0.02em; text-wrap:balance; }
+
+  a{ color:var(--accent); text-decoration:none; }
+  a:hover{ text-decoration:underline; }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:2px; }
+
+  .wrap{ max-width:1040px; margin:0 auto; padding:0 28px; }
+
+  /* ---- top bar ---- */
+  .topbar{
+    position:sticky; top:0; z-index:40;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar .wrap{ display:flex; align-items:center; justify-content:space-between; height:56px; }
+  .brand{ display:flex; align-items:center; gap:9px; font-size:13px; letter-spacing:.04em; }
+  .brand .dot{ width:7px; height:7px; border-radius:50%; background:var(--status-shipped); box-shadow:0 0 0 3px var(--status-shipped-soft); }
+  @media (prefers-reduced-motion: no-preference){
+    .brand .dot{ animation:pulse 2.4s ease-in-out infinite; }
+  }
+  @keyframes pulse{ 0%,100%{opacity:1;} 50%{opacity:.45;} }
+  nav{ display:flex; gap:22px; }
+  nav a{ color:var(--ink-soft); font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; }
+  nav a:hover{ color:var(--ink); text-decoration:none; }
+  @media (max-width:640px){ nav{ display:none; } }
+
+  /* ---- hero ---- */
+  .hero{
+    position:relative;
+    border-bottom:1px solid var(--line);
+    background-image:radial-gradient(var(--line) 1px, transparent 1px);
+    background-size:22px 22px;
+    background-position:-11px -11px;
+  }
+  .hero .wrap{ padding-top:76px; padding-bottom:48px; }
+  .hero-eyebrow{ color:var(--accent-ink); font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; margin:0 0 18px; }
+  .hero h1{ margin:0; font-size:clamp(34px,6vw,56px); line-height:1.05; }
+  .hero h1 .accent-line{ color:var(--accent); }
+  .hero-sub{ max-width:58ch; color:var(--ink-soft); font-size:17px; margin:18px 0 0; }
+  .console{
+    margin-top:28px;
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--surface); border:1px solid var(--line);
+    border-radius:6px; padding:9px 14px;
+    font-size:13px; color:var(--ink-soft);
+    box-shadow:var(--shadow);
+  }
+  .console .caret{ display:inline-block; width:7px; height:14px; background:var(--accent); }
+  @media (prefers-reduced-motion: no-preference){
+    .console .caret{ animation:blink 1s step-end infinite; }
+  }
+  @keyframes blink{ 50%{ opacity:0; } }
+  .cta-row{ display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:11px 18px; border-radius:6px; font-size:14px; font-weight:600;
+    border:1px solid transparent; cursor:pointer; font-family:inherit;
+  }
+  .btn-primary{ background:var(--ink); color:var(--bg); }
+  .btn-primary:hover{ opacity:.88; text-decoration:none; }
+  .btn-ghost{ background:var(--surface); color:var(--ink); border-color:var(--line-strong); }
+  .btn-ghost:hover{ border-color:var(--ink-faint); text-decoration:none; }
+
+  .stat-strip{ display:flex; flex-wrap:wrap; gap:0; border-top:1px solid var(--line); }
+  .stat-strip .stat{
+    flex:1 1 140px; padding:18px 28px; border-right:1px solid var(--line);
+  }
+  .stat-strip .stat:last-child{ border-right:none; }
+  .stat .num{ font-size:22px; font-weight:700; }
+  .stat .label{ color:var(--ink-faint); font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; margin-top:2px; }
+
+  /* ---- sections ---- */
+  section{ padding:72px 0; border-bottom:1px solid var(--line); }
+  section:last-of-type{ border-bottom:none; }
+  .section-head{ display:flex; align-items:baseline; gap:12px; margin-bottom:36px; }
+  .section-head .tag{ color:var(--accent-ink); font-size:12.5px; letter-spacing:.1em; }
+  .section-head h2{ margin:0; font-size:26px; }
+  .section-head .rule{ flex:1; height:1px; background:var(--line); }
+
+  /* about */
+  .about-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:48px; align-items:start; }
+  @media (max-width:760px){ .about-grid{ grid-template-columns:1fr; } }
+  .about-grid p{ color:var(--ink-soft); margin:0 0 14px; max-width:60ch; }
+  .statblock{
+    background:var(--surface); border:1px solid var(--line); border-radius:10px;
+    padding:4px; box-shadow:var(--shadow);
+  }
+  .statblock .row{
+    display:flex; justify-content:space-between; gap:12px;
+    padding:13px 16px; border-bottom:1px solid var(--line); font-size:14px;
+  }
+  .statblock .row:last-child{ border-bottom:none; }
+  .statblock .k{ color:var(--ink-soft); }
+  .statblock .v{ font-weight:600; }
+
+  /* projects */
+  .projects-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:22px; }
+  @media (max-width:720px){ .projects-grid{ grid-template-columns:1fr; } }
+  .card{
+    background:var(--surface); border:1px solid var(--line); border-radius:10px;
+    overflow:hidden; display:flex; flex-direction:column; box-shadow:var(--shadow);
+  }
+  .cover{ position:relative; height:150px; display:flex; align-items:flex-end; padding:14px 16px; }
+  .cover .cover-title{ color:#fff; font-size:15px; font-weight:700; text-shadow:0 1px 3px rgba(0,0,0,.35); }
+  .cover-1{ background:
+      radial-gradient(120% 140% at 85% 0%, rgba(255,255,255,.18), transparent 55%),
+      repeating-linear-gradient(115deg, rgba(255,255,255,.07) 0 2px, transparent 2px 26px),
+      linear-gradient(135deg,#2541C7,#6A3BD6); }
+  .cover-2{ background:
+      radial-gradient(90% 120% at 10% 100%, rgba(255,255,255,.14), transparent 55%),
+      repeating-linear-gradient(0deg, rgba(255,255,255,.05) 0 1px, transparent 1px 18px),
+      linear-gradient(160deg,#123022,#1F6E4A); }
+  .cover-3{ background:
+      radial-gradient(100% 140% at 90% 10%, rgba(255,255,255,.16), transparent 55%),
+      repeating-linear-gradient(45deg, rgba(255,255,255,.06) 0 2px, transparent 2px 22px),
+      linear-gradient(150deg,#5B2A12,#C2651E); }
+  .cover-4{ background:
+      radial-gradient(90% 130% at 15% 10%, rgba(255,255,255,.14), transparent 55%),
+      repeating-linear-gradient(90deg, rgba(255,255,255,.06) 0 1px, transparent 1px 20px),
+      linear-gradient(150deg,#1B1E29,#3B3F52); }
+
+  .card-body{ padding:16px 18px 18px; display:flex; flex-direction:column; gap:10px; flex:1; }
+  .card-top{ display:flex; align-items:center; justify-content:space-between; gap:10px; }
+  .card-top h3{ margin:0; font-size:16.5px; }
+  .pill{ font-size:11px; letter-spacing:.04em; padding:3px 9px; border-radius:100px; white-space:nowrap; font-weight:600; }
+  .pill-shipped{ background:var(--status-shipped-soft); color:var(--status-shipped); }
+  .pill-dev{ background:var(--status-dev-soft); color:var(--status-dev); }
+  .pill-proto{ background:var(--status-proto-soft); color:var(--status-proto); }
+  .card p{ margin:0; color:var(--ink-soft); font-size:14px; }
+  .tags{ display:flex; flex-wrap:wrap; gap:6px; }
+  .tag{ font-size:11.5px; color:var(--ink-soft); background:var(--surface-2); border:1px solid var(--line); padding:3px 8px; border-radius:5px; }
+  .card-links{ margin-top:auto; display:flex; gap:16px; padding-top:8px; border-top:1px solid var(--line); font-size:13px; font-weight:600; }
+
+  /* stack */
+  .stack-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  @media (max-width:760px){ .stack-grid{ grid-template-columns:repeat(2,1fr); } }
+  .stack-group .k{ color:var(--ink-faint); font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; margin-bottom:10px; }
+  .stack-group .tags{ gap:7px; }
+  .stack-group .tag{ font-size:12.5px; padding:5px 10px; }
+
+  /* experience */
+  .timeline{ display:flex; flex-direction:column; }
+  .trow{ display:grid; grid-template-columns:120px 1fr; gap:20px; padding:20px 0; border-top:1px solid var(--line); }
+  .trow:first-child{ border-top:none; }
+  .trow .when{ color:var(--ink-faint); font-size:13px; padding-top:2px; }
+  .trow h3{ margin:0 0 4px; font-size:16px; }
+  .trow .role{ color:var(--accent-ink); font-size:13px; margin-bottom:8px; }
+  .trow p{ margin:0; color:var(--ink-soft); font-size:14px; max-width:62ch; }
+  @media (max-width:600px){ .trow{ grid-template-columns:1fr; gap:4px; } }
+
+  /* contact / footer */
+  .contact-block{
+    background:var(--ink); color:var(--bg); border-radius:10px; padding:28px 30px;
+  }
+  :root[data-theme="dark"] .contact-block{ background:var(--surface-2); border:1px solid var(--line); }
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .contact-block{ background:var(--surface-2); border:1px solid var(--line); } }
+  .contact-block .line{ font-size:14.5px; margin:5px 0; }
+  .contact-block .line .k{ color:var(--accent); margin-right:10px; }
+  .contact-block a{ color:inherit; text-decoration:underline; text-underline-offset:3px; }
+  footer{ padding:28px 0 44px; }
+  footer .wrap{ display:flex; justify-content:space-between; color:var(--ink-faint); font-size:12.5px; flex-wrap:wrap; gap:8px; }
+</style>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand mono"><span class="dot"></span>KIM DOYUN — GAMEPLAY PROGRAMMER</div>
+    <nav class="mono">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#stack">Stack</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="hero-eyebrow mono">GAME PROGRAMMER · SEOUL, KR</p>
+    <h1 class="display">플레이어가 느끼는 <span class="accent-line">그 순간의 손맛</span>을<br>코드로 만듭니다.</h1>
+    <p class="hero-sub">김도윤입니다. Unity와 Unreal Engine으로 게임플레이 시스템, AI, 네트워크 동기화를 구현하는 프로그래머예요. 기획 의도가 실제 조작감으로 이어지도록 디테일을 끝까지 붙잡는 편입니다.</p>
+    <div class="console mono"><span class="caret"></span> status: 새로운 팀을 찾고 있어요 · 상시 연락 환영</div>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#projects">프로젝트 보기</a>
+      <a class="btn btn-ghost" href="#contact">연락하기</a>
+    </div>
+  </div>
+  <div class="stat-strip wrap mono">
+    <div class="stat"><div class="num">4</div><div class="label">Shipped Titles</div></div>
+    <div class="stat"><div class="num">3.5y</div><div class="label">Experience</div></div>
+    <div class="stat"><div class="num">60fps</div><div class="label">Target Frametime</div></div>
+    <div class="stat"><div class="num">C++ / C#</div><div class="label">Core Languages</div></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head"><span class="tag mono">01</span><h2 class="display">About</h2><span class="rule"></span></div>
+    <div class="about-grid">
+      <div>
+        <p>인디 스튜디오에서 레이싱 아케이드 게임의 드리프트 물리 시스템을 처음부터 구현하며 커리어를 시작했습니다. 이후 중견 스튜디오로 옮겨 로그라이크 던전크롤러의 절차적 생성 시스템과 적 AI를 담당했어요.</p>
+        <p>복잡한 시스템을 설계하는 것만큼, 그 시스템이 실제로 "재밌게 느껴지는지"를 확인하는 과정을 중요하게 생각합니다. 프로토타입 단계부터 플레이테스트에 참여해서 수치를 튜닝하는 걸 좋아해요.</p>
+      </div>
+      <div class="statblock mono">
+        <div class="row"><span class="k">ENGINE</span><span class="v">Unity, Unreal Engine 5</span></div>
+        <div class="row"><span class="k">LANGUAGE</span><span class="v">C#, C++, Python</span></div>
+        <div class="row"><span class="k">SPECIALTY</span><span class="v">Gameplay / AI / Netcode</span></div>
+        <div class="row"><span class="k">LOOKING FOR</span><span class="v">Gameplay Programmer</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head"><span class="tag mono">02</span><h2 class="display">Projects</h2><span class="rule"></span></div>
+    <div class="projects-grid">
+
+      <article class="card">
+        <div class="cover cover-1"><span class="cover-title display">네온 드리프트</span></div>
+        <div class="card-body">
+          <div class="card-top"><h3>네온 드리프트</h3><span class="pill pill-shipped">Shipped</span></div>
+          <p>탑다운 아케이드 레이싱. 타이어 그립 곡선을 직접 설계해 미끄러지는 손맛을 구현하고, Steam에 정식 출시했습니다.</p>
+          <div class="tags">
+            <span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Custom Physics</span>
+          </div>
+          <div class="card-links"><a href="#">Steam ↗</a><a href="#">Trailer ↗</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="cover cover-2"><span class="cover-title display">던전 오브 에코즈</span></div>
+        <div class="card-body">
+          <div class="card-top"><h3>던전 오브 에코즈</h3><span class="pill pill-dev">In Dev</span></div>
+          <p>로그라이크 던전크롤러. 룸 기반 절차적 생성 알고리즘과 상태 머신 기반 적 AI를 담당하고 있습니다.</p>
+          <div class="tags">
+            <span class="tag">Unreal Engine 5</span><span class="tag">C++</span><span class="tag">Procedural Gen</span>
+          </div>
+          <div class="card-links"><a href="#">Devlog ↗</a><a href="#">GitHub ↗</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="cover cover-3"><span class="cover-title display">미니 배틀로얄</span></div>
+        <div class="card-body">
+          <div class="card-top"><h3>미니 배틀로얄 프로토타입</h3><span class="pill pill-proto">Prototype</span></div>
+          <p>8인 모바일 배틀로얄 네트워크 동기화 검증용 프로토타입. 클라이언트 예측과 서버 재조정 로직을 구현했습니다.</p>
+          <div class="tags">
+            <span class="tag">Photon Fusion</span><span class="tag">Unity</span><span class="tag">Netcode</span>
+          </div>
+          <div class="card-links"><a href="#">Video ↗</a><a href="#">GitHub ↗</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="cover cover-4"><span class="cover-title display">Pathfinding Visualizer</span></div>
+        <div class="card-body">
+          <div class="card-top"><h3>Pathfinding Visualizer</h3><span class="pill pill-proto">Side Project</span></div>
+          <p>A*, Dijkstra, Flow Field 알고리즘의 탐색 과정을 비교 시각화하는 개인 툴. 면접에서 자료구조 설명용으로도 사용합니다.</p>
+          <div class="tags">
+            <span class="tag">C++</span><span class="tag">OpenGL</span><span class="tag">Open Source</span>
+          </div>
+          <div class="card-links"><a href="#">GitHub ↗</a><a href="#">Demo ↗</a></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="wrap">
+    <div class="section-head"><span class="tag mono">03</span><h2 class="display">Stack</h2><span class="rule"></span></div>
+    <div class="stack-grid">
+      <div class="stack-group">
+        <div class="k mono">Engines</div>
+        <div class="tags"><span class="tag">Unity</span><span class="tag">Unreal Engine 5</span></div>
+      </div>
+      <div class="stack-group">
+        <div class="k mono">Languages</div>
+        <div class="tags"><span class="tag">C#</span><span class="tag">C++</span><span class="tag">Python</span><span class="tag">HLSL</span></div>
+      </div>
+      <div class="stack-group">
+        <div class="k mono">Systems</div>
+        <div class="tags"><span class="tag">Gameplay AI</span><span class="tag">Netcode</span><span class="tag">Procedural Gen</span><span class="tag">Physics</span></div>
+      </div>
+      <div class="stack-group">
+        <div class="k mono">Tools</div>
+        <div class="tags"><span class="tag">Git</span><span class="tag">Perforce</span><span class="tag">Jenkins</span><span class="tag">Jira</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head"><span class="tag mono">04</span><h2 class="display">Experience</h2><span class="rule"></span></div>
+    <div class="timeline">
+      <div class="trow">
+        <div class="when mono">2024 — 현재</div>
+        <div>
+          <h3>ABC Games</h3>
+          <div class="role mono">Gameplay Programmer</div>
+          <p>로그라이크 던전크롤러 신작의 적 AI 및 절차적 던전 생성 시스템 개발. 주간 플레이테스트를 기반으로 밸런스 수치를 반복 튜닝.</p>
+        </div>
+      </div>
+      <div class="trow">
+        <div class="when mono">2022 — 2024</div>
+        <div>
+          <h3>XYZ Studio</h3>
+          <div class="role mono">Client Programmer</div>
+          <p>아케이드 레이싱 게임 「네온 드리프트」의 차량 물리 및 UI 시스템 개발. Steam 정식 출시까지 참여.</p>
+        </div>
+      </div>
+      <div class="trow">
+        <div class="when mono">2021 — 2022</div>
+        <div>
+          <h3>대학 게임 개발 동아리</h3>
+          <div class="role mono">Founding Member</div>
+          <p>팀 프로젝트 3건을 리드하며 Unity 기초 시스템과 협업 파이프라인(Git, 코드 리뷰)을 구축.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="section-head"><span class="tag mono">05</span><h2 class="display">Contact</h2><span class="rule"></span></div>
+    <div class="contact-block mono">
+      <div class="line"><span class="k">$</span>email <a href="mailto:doyun.kim@example.com">doyun.kim@example.com</a></div>
+      <div class="line"><span class="k">$</span>github <a href="#">github.com/doyunkim</a></div>
+      <div class="line"><span class="k">$</span>itch.io <a href="#">doyunkim.itch.io</a></div>
+      <div class="line"><span class="k">$</span>linkedin <a href="#">linkedin.com/in/doyunkim</a></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap mono">
+    <span>© 2026 Kim Doyun</span>
+    <span>Built with care, one frame at a time.</span>
+  </div>
+</footer>
